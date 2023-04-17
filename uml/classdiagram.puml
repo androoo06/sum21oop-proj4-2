@@ -1,0 +1,86 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App{
+    + main()
+    + start()
+}
+
+class FileHandler{
+    + promptFile():String
+    + writeToFile():void
+    + readFromFile():ArrayList<String>
+}
+
+class EventHandlerClass{
+    + handle():void
+    + filterChanged:ObservableList<item>
+    + handleCbStuff:String
+    + getCompleteItems()
+    + getIncompleteItems()
+}
+class item{
+    - LocalDate dueDate
+    - String desc
+    - Checkbox itemSelected
+    - boolean isSelected
+    - initializeCheckboxes():void
+    + lambda event for checkbox
+    + getDesc()
+    + getDate()
+    + setDesc()
+    + setDate()
+    + makeIntoItem(String):item
+    + toString():String
+}
+
+class StartupController{
+    + createNewList():void
+    + openExistingList():void
+    +initialize()
+}
+
+class ListScreenController{
+    -ObservableList currentList
+    -ObservableList selectedItems
+    -ObservableList currentItems
+    -boolean selectedAll
+    'for unit tests:
+    + boolean testing
+    +getters/setters for fields^
+
+    +listToOList():ObservableList
+    +toggleSelectionClicked():void
+    +filterBoxChanged()
+    +saveToStorage()
+    +addNewItemClicked()
+    +deleteSelectedClicked()
+    +completeBoxChanged(item)
+    +itemDescChanged(item)
+    +itemDueDateChanged(item)
+    +itemSelected(item)
+    +initialize()
+}
+
+class SceneController{
+    + createPopupWindow():void
+    + switchToScene():void
+}
+
+class WarningScreenController{
+    + continueToHome()
+    + cancel()
+}
+
+App --> SceneController
+App --> StartupController
+App -- ListScreenController
+item --o ListScreenController
+item -- StartupController
+FileHandler --> ListScreenController
+FileHandler <-- StartupController
+EventHandlerClass -- ListScreenController
+WarningScreenController --> SceneController
+ListScreenController --> WarningScreenController
+
+@enduml

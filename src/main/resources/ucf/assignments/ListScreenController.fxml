@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ListScreenController">
+   <children>
+      <TableView fx:id="listDisplay" layoutY="36.0" prefHeight="364.0" prefWidth="600.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.2">
+        <columns>
+          <TableColumn fx:id="itemDesc" onEditCommit="#editDescription" prefWidth="144.79998779296875" text="Item Description" />
+          <TableColumn fx:id="itemDue" minWidth="8.800048828125" onEditCommit="#editDueDate" prefWidth="103.20001220703125" text="Due Date" />
+            <TableColumn fx:id="completeSlot" prefWidth="93.60003662109375" sortable="false" text="Complete" />
+            <TableColumn fx:id="selectedSlot" prefWidth="99.20001220703125" sortable="false" text="Select Item">
+               <graphic>
+                  <Button fx:id="toggleSelection" mnemonicParsing="false" onAction="#toggleSelectionClicked" prefHeight="18.0" prefWidth="24.0" text="T" />
+               </graphic></TableColumn>
+        </columns>
+      </TableView>
+      <ToolBar prefHeight="0.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+            <ChoiceBox fx:id="filterBox" onAction="#filterChanged" prefWidth="150.0" />
+            <Button fx:id="saveToFileButton" mnemonicParsing="false" onAction="#saveToFileClicked" text="Save list to file" />
+            <Button fx:id="addNewItemButton" mnemonicParsing="false" onAction="#addNewItemClicked" text="Add new item" />
+            <Button fx:id="deleteSelectedButton" layoutX="243.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteSelectedClicked" text="Delete Selected" />
+            <Button fx:id="returnToMenuButton" layoutX="356.0" layoutY="10.0" mnemonicParsing="false" onAction="#returnToMenuClicked" text="Return to menu" />
+        </items>
+      </ToolBar>
+      <Label alignment="CENTER" layoutY="376.0" prefHeight="26.0" prefWidth="600.0" text="Closing the app will lose any unsaved progress!" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+   </children>
+</AnchorPane>

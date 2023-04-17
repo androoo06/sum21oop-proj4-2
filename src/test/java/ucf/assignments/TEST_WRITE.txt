@@ -1,0 +1,4 @@
+example/!!S_E_G/split!!/2021-07-21/!!S_E_G/split!!/true
+example/!!S_E_G/split!!/2021-07-21/!!S_E_G/split!!/true
+example/!!S_E_G/split!!/2021-07-21/!!S_E_G/split!!/true
+example/!!S_E_G/split!!/2021-07-21/!!S_E_G/split!!/false
